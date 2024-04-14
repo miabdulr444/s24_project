@@ -20,7 +20,7 @@ def fetch_results4(search_url):
 def sort_results_by_publication_year(results):
     return sorted(results, key=lambda x: x.get('publication_year', float('inf')), reverse=True)
 
-@click.command(help='OpenAlex get_info')
+@click.command(help='get_info')
 @click.argument('keyword', type=str)
 
 def get_info(keyword):      
