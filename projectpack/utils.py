@@ -3,7 +3,7 @@ from operator import itemgetter
 from collections.abc import Iterable
 
 def hello(name):
-    print(f'Hi there {name}')
+    return(f'Hi there {name}')
 
 def fetch_results4(search_url):
     results = []
@@ -14,7 +14,7 @@ def fetch_results4(search_url):
             results.extend(data.get('results',[]))
             search_url = data.get('next')
         else:
-            print("Error: Unable to retrieve search results.")
+            return("Error: Unable to retrieve search results.")
             break
     return results
 
