@@ -39,5 +39,4 @@ def get_info(keywords):
     else:
         print(f"No results found for keyword(s): '{''.join(keywords)}'.")
 
-if __name__=="__get_info__":
-    get_info()
+
