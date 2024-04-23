@@ -1,5 +1,3 @@
-"""Module containing utility functions for the project pack."""
-
 import requests
 from operator import itemgetter
 from collections.abc import Iterable
@@ -38,15 +36,17 @@ def fetch_results4(search_url):
         list: A list of search results.
     """
     results = []
-    while search_url:
-        response = requests.get(search_url)
-        if response.status_code == 200:
-            data = response.json()
-            results.extend(data.get("results", []))
-            search_url = data.get("next")
-        else:
-            return "Error: Unable to retrieve search results."
-            break
+    try:
+        while search_url:
+            response = requests.get(search_url)
+            if response.status_code == 200:
+                data = response.json()
+                results.extend(data.get("results", []))
+                search_url = data.get("next")
+            else:
+                return "Error: Unable to retrieve search results."
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
     return results
 
@@ -66,6 +66,10 @@ def sort_results_by_publication_year(results):
         list: A list of results sorted by publication year.
 
     """
-    return sorted(
-        results, key=lambda x: x.get("publication_year", float("inf")), reverse=True
-    )
+    try:
+        return sorted(
+            results, key=lambda x: x.get("publication_year", float("inf")), reverse=True
+        )
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
