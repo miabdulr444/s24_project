@@ -1,3 +1,5 @@
+"""Module containing functions for projectpack."""
+
 import requests
 from operator import itemgetter
 from collections.abc import Iterable
@@ -8,8 +10,8 @@ def hello(name):
 
     Greet a person by name.
 
-     Args
-     ----
+    Args
+    ----
         name (str): The name of the person.
 
 

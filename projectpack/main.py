@@ -1,14 +1,19 @@
+"""Module to fetch information from the OpenAlex API based on provided keywords."""
+
 import argparse
 from .utils import fetch_results4, sort_results_by_publication_year
+
 
 def get_info(keywords):
     """
     Retrieve information based on provided keywords from the OpenAlex API.
 
-    Args:
+    Args
+    ----
         keywords (tuple of str): Keywords to search for.
 
-    Returns:
+    Returns
+    -------
         None
 
     Prints information about the search results, i.e titles, publication years,
@@ -66,9 +71,9 @@ def get_info(keywords):
     except SystemExit:
         pass
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch information from OpenAlex API")
     parser.add_argument("keywords", nargs="+", help="Keywords to search for")
     args = parser.parse_args()
     get_info(args.keywords)
-    
